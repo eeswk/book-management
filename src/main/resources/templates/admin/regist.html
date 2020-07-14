@@ -1,0 +1,45 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/defaultLayout">
+
+<!-- index.html 고유 CSS 추가 -->
+<th:block layout:fragment="css">
+</th:block>
+
+<!-- index.html 고유 스크립트 추가 -->
+<th:block layout:fragment="script">
+</th:block>
+
+<div layout:fragment="content">
+    <h1>도서등록</h1>
+    <div class="col-md-12">
+        <div class="col-md-4">
+            <form>
+                <div class="form-group">
+                    <label for="name">도서명</label>
+                    <input type="text" class="form-control" id="name" placeholder="도서명을 입력해주세요.">
+                </div>
+                <div class="form-group">
+                    <label for="author">저자</label>
+                    <input type="text" class="form-control" id="author" placeholder="저자를 입력해주세요.">
+                </div>
+                <div class="form-group">
+                    <label for="translator">번역</label>
+                    <input type="text" class="form-control" id="translator" placeholder="역자를 입력해주세요.">
+                </div>
+                <div class="form-group">
+                    <label for="publisher">출판사</label>
+                    <input type="text" class="form-control" id="publisher" placeholder="출판사을 입력해주세요.">
+                </div>
+                <div class="form-group">
+                    <label for="publishedDate">발행일</label>
+                    <input type="text" class="form-control" id="publishedDate" placeholder="발행일을 입력해주세요.">
+                </div>
+            </form>
+            <a href="/admin/list" role="button" class="btn btn-secondary">취소</a>
+            <button type="button" class="btn btn-primary" id="btn-save">등록</button>
+        </div>
+    </div>
+</div>
+</html>

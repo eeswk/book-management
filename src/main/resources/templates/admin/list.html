@@ -12,28 +12,39 @@
 </th:block>
 
 <div layout:fragment="content">
-    <h1>도서정보</h1>
-    <div>
-        <table>
-            <thead>
+    <h1>도서목록</h1>
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6">
+                <a href="/admin/regist" role="button" class="btn btn-primary">도서 등록</a>
+            </div>
+        </div>
+        <br/>
+        <table class="table table-horizontal table-bordered">
+            <thead class="thead-strong">
             <tr>
-                <th>No.</th>
+                <th>번호</th>
                 <th>도서명</th>
+                <th>저자</th>
+                <th>역자</th>
                 <th>출판사</th>
-                <th>출간일</th>
+                <th>발행일</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody id="tbody">
             <tr th:each="book, i: ${books}">
                 <td th:text="${book.id}"></td>
                 <td>
-                    <a th:href="${'/books/' + book.id}" th:text="${book.name}"></a>
+                    <a th:href="${'/admin/detail/' + book.id}" th:text="${book.name}"></a>
                 </td>
+                <td th:text="${book.author}"></td>
+                <td th:text="${book.translator}"></td>
                 <td th:text="${book.publisher}"></td>
                 <td th:text="${book.publishedDate}"></td>
             </tr>
             </tbody>
         </table>
+
     </div>
 </div>
 </html>
