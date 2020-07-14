@@ -1,7 +1,7 @@
 package com.swan.book.controller;
 
 import com.swan.book.controller.dto.BookDto;
-import com.swan.book.domain.Book;
+import com.swan.book.domain.Books;
 import com.swan.book.service.BookService;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,7 +21,7 @@ public class BookController {
 
     @GetMapping(path = "books")
     public String list(Model model) {
-        List<Book> list = bookService.list();
+        List<Books> list = bookService.list();
         List<BookDto> books = list.stream().map(
                 book -> BookDto.builder()
                         .id(book.getId())
@@ -36,7 +36,7 @@ public class BookController {
 
     @RequestMapping(path = "books/{bookId}")
     public String detail(@PathVariable Long bookId, Model model) {
-        Book book = bookService.detail(bookId);
+        Books book = bookService.detail(bookId);
         BookDto bookDto = BookDto.builder()
                 .id(book.getId())
                 .name(book.getName())
