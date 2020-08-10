@@ -1,10 +1,8 @@
 package com.swan.book.domain;
 
+import com.swan.book.utils.LocalDateConverter;
 import java.time.LocalDate;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +23,9 @@ public class Books {
     private String author;
     private String translator;
     private String publisher;
+
+    @Column(name = "published_date")
+    @Convert(converter = LocalDateConverter.class)
     private LocalDate publishedDate;
 
     @Builder
